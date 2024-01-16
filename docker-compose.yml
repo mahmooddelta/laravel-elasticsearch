@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  my-php:
+    build:
+      context: ./dockerfiles
+      dockerfile: php8.1.Dockerfile
+    container_name: "my-php"
+    image: my-php
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "9017:9001"
+    volumes:
+      - .:/var/www/html
+
